@@ -42,7 +42,6 @@ interface Props {
 }
 
 export const DeregisterModal = ({ open, setOpen, event, unregisterForAttendance, attendee }: Props) => {
-  //const hasCompanyOrganizer = event.companies.length > 0
   const hasCompanyOrganizer = event.companies.length > 0
 
   return (
