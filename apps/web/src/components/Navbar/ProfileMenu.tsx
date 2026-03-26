@@ -205,6 +205,8 @@ const linkGroups: LinkGroup[] = [
 
 export const ProfileMenu: FC = () => {
   const fullPathname = useFullPathname()
+  const trpc = useTRPC()
+
   const {
     sessionUser,
     isLoading,
@@ -215,6 +217,10 @@ export const ProfileMenu: FC = () => {
     dbUser,
     dbUserQuery,
   } = useAuthenticatedUser()
+
+  const { data: amountUnread } = useQuery(
+    trpc.notification.getUnreadCount.queryOptions(undefined, { enabled: dbUser !== null })
+  )
 
   if (isLoading) {
     return null
@@ -238,7 +244,7 @@ export const ProfileMenu: FC = () => {
   return (
     <div className="flex gap-1 mr-2 lg:mr-0">
       <ContactDebugDropdown />
-      <NotificationDropdown />
+      <NotificationDropdown amountUnread={amountUnread} />
       <AvatarDropdown dbUser={dbUser} dbUserIsLoading={dbUserQuery.isLoading} />
     </div>
   )
