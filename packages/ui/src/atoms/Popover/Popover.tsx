@@ -12,6 +12,8 @@ export const PopoverAnchor = PopoverPrimitive.Anchor
 
 export const PopoverPortal = PopoverPrimitive.Portal
 
+export const PopoverClose = PopoverPrimitive.Close
+
 type PopoverContentProps = React.ComponentPropsWithRef<typeof PopoverPrimitive.Content> & {
   align?: React.ComponentPropsWithRef<typeof PopoverPrimitive.Content>["align"]
   sideOffset?: React.ComponentPropsWithRef<typeof PopoverPrimitive.Content>["sideOffset"]
