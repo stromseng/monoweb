@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           <Auth0Provider user={auth0User}>
             <QueryProvider>
               <ThemeProvider defaultTheme="system" enableSystem attribute="data-theme">
-                <div className="min-h-screen flex flex-col gap-8 w-full max-w-screen-xl mx-auto px-4 lg:px-12">
+                <div className="min-h-screen flex flex-col gap-8 w-full max-w-7xl mx-auto px-[calc(var(--navbar-height)/2)]">
                   <Navbar />
                   <main className="grow">{children}</main>
                   <Footer />

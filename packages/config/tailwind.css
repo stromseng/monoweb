@@ -4,6 +4,12 @@
 
 @layer base {
   :root {
+    --navbar-height: 4rem;
+    --navbar-overhang: clamp(
+      0px,
+      calc((100vw - 80rem + var(--navbar-height)) / 2),
+      calc(var(--navbar-height) / 2)
+    );
     --color-brand: #0b5374;
     --color-accent: #fab759;
   }

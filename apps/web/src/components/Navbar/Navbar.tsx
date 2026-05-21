@@ -158,12 +158,17 @@ export const Navbar: FC = () => {
   const showLoginButton = sessionUser === null
 
   return (
-    <header className={cn("sticky top-4 z-50 flex w-full max-w-7xl items-stretch mt-4", showLoginButton && "gap-1.5")}>
+    <header
+      className={cn(
+        "sticky top-4 z-50 mt-4 flex w-[calc(100%+2*var(--navbar-overhang))] -mx-(--navbar-overhang) items-stretch",
+        showLoginButton && "gap-1.5"
+      )}
+    >
       <div
         className={cn(
           // i have no idea why i need rounded-4xl and not rounded-full
-          "p-3 rounded-4xl bg-blue-100/80 dark:bg-stone-800/90 backdrop-blur-xl shadow-sm border border-blue-100 dark:border-stone-700/30",
-          "flex flex-row justify-between items-center w-full",
+          "h-(--navbar-height) rounded-4xl border border-blue-100 bg-blue-100/80 p-3 shadow-sm backdrop-blur-xl dark:border-stone-700/30 dark:bg-stone-800/90",
+          "flex flex-row items-center justify-between w-full",
           showLoginButton ? "min-w-0 grow" : "w-full",
           !isLoggedIn && "rounded-r-lg"
         )}
@@ -181,12 +186,12 @@ export const Navbar: FC = () => {
       </div>
 
       {showLoginButton && (
-        <div className="flex shrink-0 rounded-l-lg rounded-r-4xl border border-blue-100 bg-blue-100/80 shadow-sm backdrop-blur-xl dark:border-stone-700/30 dark:bg-stone-800/90">
+        <div className="flex h-(--navbar-height) shrink-0 rounded-l-lg rounded-r-4xl border border-blue-100 bg-blue-100/80 shadow-sm backdrop-blur-xl dark:border-stone-700/30 dark:bg-stone-800/90">
           <Button
             element="a"
             variant="solid"
             color="brand"
-            className="font-medium min-w-19 h-full shrink-0 rounded-l-lg rounded-r-4xl py-0 pl-3 pr-4 xs:pl-6 xs:pr-8"
+            className="h-full min-w-19 shrink-0 rounded-l-lg rounded-r-4xl py-0 pl-3 pr-4 xs:pl-6 xs:pr-8 font-medium"
             href={createAuthorizeUrl({ returnTo: fullPathname })}
             icon={<IconLogin2 className="mr-1.5 size-6" />}
           >
